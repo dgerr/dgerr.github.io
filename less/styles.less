@@ -1,0 +1,58 @@
+
+/************* LESS files ***********/
+
+
+@color_text: #555555;
+@color_link: rgba(0, 102, 255, 1); /* #0066ff; */
+@color_link_light: rgba(0, 102, 255, 0.1);
+
+body { 
+	font: 14px 'Inconsolata', 'Source Sans Pro', sans-serif; 
+	line-height: 1.75em;
+	color: @color_text;
+}
+
+a {
+	color: @color_link;
+	text-decoration: none;
+}
+
+h3 {
+	display: inline-block;
+
+	&:after {
+		content: '';
+		display: block;
+		height: 10px;
+		width: 100%;
+		margin-top: -10px;
+		background-color: @color_link_light;
+	}
+}
+
+#container { 
+	position: absolute;
+	top: 75px;
+	left: 150px;
+	width: 300px;
+}
+
+.me {
+	width: 150px;
+	display: block;
+	margin-bottom: 30px;
+	margin-left: -30px;
+}
+
+.nav {
+	margin-top: 25px;
+
+	a {
+		margin-right: 25px;
+	}
+}
+
+.page {
+	margin-top: 100%;
+	margin-bottom: 10%;
+}
