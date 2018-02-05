@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: #504C41;
+  background-color: #C6C2AB;
+  font-size: 17px;
+  font-family: 'Rodin', 'Open Sans', sans-serif;
+  /*hunt for Rodin?*/
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: Rodin;
+  src: local('Rodin'), url(../Rodin.otf) format('opentype');
+}
+#checkerboard {
+  opacity: 0.05;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(45deg, #fff 25%, transparent 25%), linear-gradient(-45deg, #fff 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #fff 75%), linear-gradient(-45deg, transparent 75%, #fff 75%);
+  background-size: 5px 5px;
+  background-position: 0 0, 2.5px 0, 2.5px -2.5px, 0px 2.5px;
+  /*	background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+*/
+}
+#nav {
+  height: 50px;
+  opacity: 0.9;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #504C41;
+}
+#nav:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#nav ul {
+  height: 100%;
+  max-width: 85%;
+  margin: 20px auto;
+}
+#nav ul li {
+  background-color: #A29E8A;
+  list-style-type: none;
+  display: block;
+  float: left;
+  text-transform: uppercase;
+  padding: 4px;
+  width: 120px;
+  margin-right: 25px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  transition: 0.1s background-color, color;
+}
+#nav ul li:before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  height: 17px;
+  width: 17px;
+  background-color: #504C41;
+  margin-left: 2px;
+}
+#nav ul li:hover,
+#nav ul li.active {
+  cursor: crosshair;
+  background-color: #504C41;
+  color: #C6C2AB;
+  height: 100%;
+  padding-bottom: 0;
+}
+#nav ul li:hover:before,
+#nav ul li.active:before {
+  background-color: #C6C2AB;
+}
+#container {
+  width: 90%;
+  margin: 30px auto;
+}
+#container .header h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: normal;
+  text-shadow: 6px 6px #A29E8A;
+}
+#container .header h3,
+#container .header h4 {
+  display: inline-block;
+}
+#container .header h4 {
+  font-size: 20px;
+  margin-left: 5px;
+  letter-spacing: 1px;
+}
