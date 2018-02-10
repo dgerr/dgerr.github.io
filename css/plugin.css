@@ -41,6 +41,9 @@ body {
   letter-spacing: 0.5px;
   box-sizing: border-box;
 }
+b {
+  font-weight: normal;
+}
 #shapes {
   overflow: hidden;
   height: 100%;
