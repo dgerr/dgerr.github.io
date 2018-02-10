@@ -11,14 +11,20 @@
 @font-face {
   font-family: Rodin;
   src: local('Rodin'), url(../Rodin.otf) format('opentype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: Rodin;
+  src: local('Rodin'), url(../Rodin-bold.otf) format('opentype');
+  font-weight: bold;
 }
 .square {
   content: '';
   display: inline-block;
   position: relative;
   top: 2px;
-  height: 15px;
-  width: 15px;
+  height: 14px;
+  width: 14px;
   background-color: #504C41;
   margin-left: 2px;
 }
@@ -29,9 +35,10 @@
 body {
   color: #504C41;
   background-color: #C6C2AB;
-  font-size: 15px;
+  font-size: 14px;
   font-family: 'Rodin', 'Open Sans', sans-serif;
   /*hunt for Rodin?*/
+  letter-spacing: 0.5px;
   box-sizing: border-box;
 }
 #shapes {
@@ -75,16 +82,17 @@ body {
   margin-bottom: 350px;
 }
 #checkerboard {
-  opacity: 0.12;
-  z-index: -1;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   background-image: linear-gradient(45deg, #fff 25%, transparent 25%), linear-gradient(-45deg, #fff 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #fff 75%), linear-gradient(-45deg, transparent 75%, #fff 75%);
-  background-size: 5px 5px;
-  background-position: 0 0, 2.5px 0, 2.5px -2.5px, 0px 2.5px;
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 0, 2px -2px, 0px 2px;
   /*	background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 */
 }
@@ -103,6 +111,8 @@ body {
   height: 100%;
   max-width: 85%;
   margin: 20px auto;
+  padding-left: 80px;
+  box-shadow: -5px 0px 0px -2px #A29E8A, -10px 0px 0px -2px #C6C2AB, -20px 0px 0px -2px #A29E8A;
 }
 #nav ul li {
   background-color: #A29E8A;
@@ -122,8 +132,8 @@ body {
   display: inline-block;
   position: relative;
   top: 2px;
-  height: 15px;
-  width: 15px;
+  height: 14px;
+  width: 14px;
   background-color: #504C41;
   margin-left: 2px;
 }
@@ -144,26 +154,31 @@ body {
   margin: 30px auto;
 }
 #container .chips {
-  font-size: 13px;
+  font-size: 14px;
   display: inline-block;
   border-bottom: 2px solid #C6C2AB;
 }
 #container .chips ul {
   list-style: none;
   height: 300px;
-  width: 250px;
   overflow-y: scroll;
   padding-right: 20px;
 }
 #container .chips ul li {
   border-left: 5px solid #88816f;
   padding-left: 8px;
-  margin: 5px -2px;
+  margin: 6px -2px;
   padding-right: 15px;
   margin-right: -15px;
 }
 #container .chips ul li b {
   float: right;
+}
+#container .chips ul li b:before {
+  content: '【';
+}
+#container .chips ul li b:after {
+  content: '】';
 }
 #container .chips ul li:hover {
   cursor: crosshair;
@@ -187,16 +202,59 @@ body {
   margin-left: 5px;
   letter-spacing: 1px;
 }
+#container .chips {
+  margin-right: 25%;
+  width: 25%;
+}
+#container .status {
+  display: inline-block;
+  margin-left: 15%;
+  width: 26%;
+}
+#container .status .hp {
+  display: inline-block;
+  height: 5px;
+  width: 90px;
+  margin: 0 8px;
+  background-color: #A29E8A;
+  vertical-align: middle;
+}
+#container .status h2 {
+  letter-spacing: 1px;
+  background: #504C41;
+  font-weight: normal;
+  color: #C6C2AB;
+  font-size: 14px;
+  margin: -10px -20px 10px -20px;
+  padding: 2px 4px 2px 20px;
+}
+#container .status ul li {
+  list-style-type: none;
+  line-height: 1.7em;
+}
+#container .status ul li b {
+  float: right;
+}
+#container .status hr {
+  margin: 6px 0;
+  border: 0;
+  border-bottom: 1px solid #A29E8A;
+}
+#container .status,
 #container .chips,
 #container .select {
   z-index: 0;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: #d0cdba;
+}
+#container .chips {
   box-shadow: 2px 2px #A29E8A;
 }
 #container .select {
   margin-top: 20px;
-  border-left: 7px solid #504C41;
+  box-shadow: -5px 0px 0px -2px #504C41, -10px 0px 0px -2px #d0cdba, -20px 0px 0px -2px #504C41, 2px 2px #A29E8A;
+  /*		border-left: 2px solid @dark_brown;
+*/
 }
 #container .select ul.options {
   float: right;
@@ -211,18 +269,39 @@ body {
   display: inline-block;
   position: relative;
   top: 2px;
-  height: 15px;
-  width: 15px;
+  height: 14px;
+  width: 14px;
   background-color: #504C41;
   margin-left: 2px;
   border-radius: 99px;
 }
+.squares {
+  text-align: center;
+  margin: 4px auto;
+}
+.squares > div {
+  height: 12px;
+  width: 12px;
+  border: 1px solid #A29E8A;
+  display: inline-block;
+  margin-right: 8px;
+}
+.error {
+  text-align: center;
+}
+.error span {
+  display: inline-block;
+  padding: 20px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+}
 #creds {
-  position: fixed;
   bottom: 0;
   right: 0;
   font-size: 9px;
-  padding: 20px;
+  margin-top: 50px;
 }
 #creds a {
   text-decoration: none;
