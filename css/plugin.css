@@ -8,6 +8,17 @@
   box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
   margin-right: 4px;
 }
+@keyframes bgcolor {
+  0% {
+    background-color: #504C41;
+  }
+  50% {
+    background-color: #7a7463;
+  }
+  100% {
+    background-color: #504C41;
+  }
+}
 @font-face {
   font-family: Rodin;
   src: local('Rodin'), url(../Rodin.otf) format('opentype');
@@ -228,6 +239,7 @@ b {
 #container .chips ul li:hover {
   cursor: crosshair;
   background-color: #504C41;
+  animation: bgcolor 1.5s infinite;
   color: #C6C2AB;
   transition: 0.1s all;
 }
