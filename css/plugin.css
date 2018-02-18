@@ -49,14 +49,10 @@
   background-size: contain;
   background-repeat: repeat-x;
   height: 12px;
-}
-.glyph-container.nav {
-  width: 92%;
-  xmargin-left: 42px;
-}
-.glyph-container.border {
   width: 100%;
   margin: 0;
+}
+.glyph-container.border {
   border-top: 2px solid #504C41;
 }
 * {
