@@ -28,6 +28,26 @@
   background-color: #504C41;
   margin-left: 2px;
 }
+.glyph {
+  background-image: url('../plugin/nier.svg');
+  background-size: contain;
+  background-repeat: repeat-x;
+}
+.glyph-container {
+  background-image: url('../plugin/nier.svg');
+  background-size: contain;
+  background-repeat: repeat-x;
+  height: 12px;
+}
+.glyph-container.nav {
+  width: 92%;
+  xmargin-left: 42px;
+}
+.glyph-container.border {
+  width: 100%;
+  margin: 0;
+  border-top: 2px solid #504C41;
+}
 * {
   margin: 0;
   padding: 0;
@@ -49,6 +69,7 @@ b {
   height: 100%;
   width: 100%;
   position: fixed;
+  transform: scale(1.2);
   z-index: -3;
   opacity: 0.6;
 }
@@ -112,10 +133,11 @@ b {
 }
 #nav ul {
   height: 100%;
-  max-width: 85%;
+  max-width: 90%;
   margin: 20px auto;
-  padding-left: 80px;
-  box-shadow: -5px 0px 0px -2px #A29E8A, -10px 0px 0px -2px #C6C2AB, -20px 0px 0px -2px #A29E8A;
+  box-shadow: -30px 0px 0px -2px #C6C2AB, -32px 0px 0px -2px #A29E8A, -40px 0px 0px -2px #C6C2AB, -50px 0px 0px -2px #A29E8A;
+  position: relative;
+  left: 30px;
 }
 #nav ul li {
   background-color: #A29E8A;
@@ -124,8 +146,8 @@ b {
   float: left;
   text-transform: uppercase;
   padding: 4px;
-  width: 120px;
-  margin-right: 25px;
+  width: 125px;
+  margin-right: 30px;
   margin-bottom: 10px;
   letter-spacing: 1px;
   transition: 0.1s background-color, color;
@@ -159,20 +181,40 @@ b {
 #container .chips {
   font-size: 14px;
   display: inline-block;
+  letter-spacing: 0;
   border-bottom: 2px solid #C6C2AB;
+  margin-left: 30px;
+}
+#container .chips hr {
+  position: relative;
+  left: 2.5%;
+  width: 90%;
+  border: 0;
+  border-bottom: 1px solid #A29E8A;
 }
 #container .chips ul {
   list-style: none;
-  height: 300px;
+  height: 360px;
   overflow-y: scroll;
-  padding-right: 20px;
+  padding-right: 30px;
+  box-shadow: -30px 0px 0px -2px #C6C2AB, -32px 0px 0px -2px #A29E8A, -40px 0px 0px -2px #C6C2AB, -50px 0px 0px -2px #A29E8A;
 }
 #container .chips ul li {
   border-left: 5px solid #88816f;
   padding-left: 8px;
   margin: 6px -2px;
-  padding-right: 15px;
-  margin-right: -15px;
+  min-width: 260px;
+  position: relative;
+}
+#container .chips ul li:before {
+  content: '';
+  display: inline-block;
+  height: 5px;
+  width: 5px;
+  background-color: #504C41;
+  margin-right: 8px;
+  border: 2px solid #C6C2AB;
+  outline: 1px solid #504C41;
 }
 #container .chips ul li b {
   float: right;
@@ -205,20 +247,38 @@ b {
   margin-left: 5px;
   letter-spacing: 1px;
 }
+#container .storage {
+  width: 12%;
+  height: 400px;
+  margin: 0 14%;
+  background-color: #66645B;
+  display: inline-block;
+}
+#container .storage .lock {
+  background-image: url('../plugin/lock.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 200px;
+  height: 25px;
+  opacity: 0.3;
+}
 #container .chips {
-  margin-right: 25%;
+  /*		margin-right: 25%;
+*/
   width: 25%;
 }
-#container .status {
+#container .status-container {
   display: inline-block;
-  margin-left: 15%;
-  width: 26%;
+  /*margin-left: 15%;*/
+  width: 30%;
+  position: relative;
+  top: -35px;
 }
 #container .status .hp {
   display: inline-block;
-  height: 5px;
+  height: 6px;
   width: 90px;
-  margin: 0 8px;
   background-color: #A29E8A;
   vertical-align: middle;
 }
@@ -251,10 +311,19 @@ b {
   background-color: #d0cdba;
 }
 #container .chips {
+  padding: 6px 12px 6px 0;
+}
+#container .storage-used {
+  background-color: #d0cdba;
+  padding: 3px 15px;
+  border-left: 7px solid #504C41;
+  margin-bottom: 25px;
+}
+#container .chips {
   box-shadow: 2px 2px #A29E8A;
 }
 #container .select {
-  margin-top: 20px;
+  margin-top: 0px;
   box-shadow: -5px 0px 0px -2px #504C41, -10px 0px 0px -2px #d0cdba, -20px 0px 0px -2px #504C41, 2px 2px #A29E8A;
   /*		border-left: 2px solid @dark_brown;
 */
@@ -294,7 +363,7 @@ b {
 }
 .error span {
   display: inline-block;
-  padding: 20px;
+  padding: 30px;
   margin: 0 auto;
   text-transform: uppercase;
   font-size: 10.5px;
@@ -304,7 +373,7 @@ b {
   bottom: 0;
   right: 0;
   font-size: 9px;
-  margin-top: 50px;
+  margin: 20px 42px;
 }
 #creds a {
   text-decoration: none;
