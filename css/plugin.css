@@ -34,8 +34,8 @@
   display: inline-block;
   position: relative;
   top: 2px;
-  height: 14px;
-  width: 14px;
+  height: 13px;
+  width: 13px;
   background-color: #504C41;
   margin-left: 2px;
 }
@@ -62,7 +62,7 @@
 body {
   color: #504C41;
   background-color: #C6C2AB;
-  font-size: 14px;
+  font-size: 13px;
   font-family: 'Rodin', 'Open Sans', sans-serif;
   /*hunt for Rodin?*/
   letter-spacing: 0.5px;
@@ -164,8 +164,8 @@ b {
   display: inline-block;
   position: relative;
   top: 2px;
-  height: 14px;
-  width: 14px;
+  height: 13px;
+  width: 13px;
   background-color: #504C41;
   margin-left: 2px;
 }
@@ -183,10 +183,10 @@ b {
 }
 #container {
   width: 90%;
-  margin: 30px auto;
+  margin: 15px auto;
 }
 #container .chips {
-  font-size: 14px;
+  font-size: 13px;
   display: inline-block;
   letter-spacing: 0;
   border-bottom: 2px solid #C6C2AB;
@@ -242,7 +242,7 @@ b {
 #container .header h3 {
   letter-spacing: 5px;
   text-transform: uppercase;
-  font-size: 33px;
+  font-size: 30px;
   font-weight: normal;
   text-shadow: 6px 6px #A29E8A;
 }
@@ -257,17 +257,18 @@ b {
 }
 #container .storage {
   width: 12%;
-  height: 400px;
+  height: 390px;
   margin: 0 14%;
   background-color: #66645B;
   display: inline-block;
+  margin-bottom: -10px;
 }
 #container .storage .lock {
   background-image: url('../plugin/lock.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  margin-top: 200px;
+  margin-top: 170px;
   height: 25px;
   opacity: 0.3;
 }
@@ -295,7 +296,7 @@ b {
   background: #504C41;
   font-weight: normal;
   color: #C6C2AB;
-  font-size: 14px;
+  font-size: 13px;
   margin: -10px -20px 10px -20px;
   padding: 2px 4px 2px 20px;
 }
@@ -349,8 +350,8 @@ b {
   display: inline-block;
   position: relative;
   top: 2px;
-  height: 14px;
-  width: 14px;
+  height: 13px;
+  width: 13px;
   background-color: #504C41;
   margin-left: 2px;
   border-radius: 99px;
