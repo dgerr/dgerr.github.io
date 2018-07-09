@@ -1,14 +1,13 @@
 
 /************* LESS files ***********/
 
-
-@color_text: #555555;
+@color_text: #333;
 @color_link: rgba(0, 102, 255, 1); /* #0066ff; */
 @color_link_light: rgba(0, 102, 255, 0.1);
 
 body { 
-	font: 14px 'Inconsolata', 'Source Sans Pro', sans-serif; 
-	line-height: 1.75em;
+	font: 13px 'Inconsolata', 'Source Sans Pro', sans-serif; 
+	line-height: 1.7em;
 	color: @color_text;
 }
 
@@ -18,9 +17,13 @@ a {
 }
 
 h3 {
-	display: inline-block;
+	display: block;
+	font-weight: normal;
+	color: black;
+	font-size: 19px;
+	text-transform: lowercase;
 
-	&:after {
+/*	&:after {
 		content: '';
 		display: block;
 		height: 10px;
@@ -28,20 +31,25 @@ h3 {
 		margin-top: -10px;
 		background-color: @color_link_light;
 	}
-}
+*/}
 
 #container { 
 	position: absolute;
-	top: 75px;
-	left: 150px;
-	width: 300px;
+	top: 100px;
+	left: 125px;
+	width: 350px;
+
+	margin-bottom: 100px;
 }
 
 .me {
+	position: fixed;
+	bottom: 0;
+	right:  0;
+
 	width: 150px;
 	display: block;
-	margin-bottom: 30px;
-	margin-left: -30px;
+	margin: 50px;
 }
 
 .nav {
@@ -54,5 +62,6 @@ h3 {
 
 .page {
 	margin-top: 100%;
-	margin-bottom: 10%;
+	padding-top: 10%;
+	margin-bottom: 25%;
 }
