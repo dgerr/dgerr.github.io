@@ -1,0 +1,478 @@
+<html>
+
+<head> <title> wordart: css generator </title> </head>
+
+<body>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+
+$(document).ready(function() {
+	$('.ok').click(function() {
+		alert('ha ha! you thought this would do something!');
+	});
+});
+
+</script>
+
+<style>
+/* yeah! fuck it! everything's inline! */
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	margin: 2% 5%;
+	font-family: 'Inconsolata', 'Menlo', system-ui, monospace;
+}
+
+.buttons {
+    text-align: right;
+}
+
+.credit {
+	width: 50%;
+	font-size: 0.6em;
+	font-style: italic;
+	margin: 50px 0 10px 0;
+}
+
+textarea {
+    width: 250px;
+    height: 80px;
+    display: block;
+    margin: 15px 0;
+}
+
+.put {
+	display: inline-block;
+    vertical-align: top;
+}
+
+.input { width: 55%; }
+
+.button {
+    display: inline-block;
+    background: white;
+    padding: 3px;
+    width: 80px;
+    border-radius: 2px;
+    text-align: center;
+    margin: 0 2px;
+
+	box-shadow: inset 0 0 1px dodgerblue;
+    border: 1px solid #777;
+}
+
+.button:hover {
+	cursor: pointer;
+	box-shadow: inset 0 0 4px dodgerblue;
+}
+
+.select-wordart-style {
+    font: 11px Tahoma, sans-serif;
+    -webkit-font-smoothing: none;
+
+
+    width: 270px; /*jesus christ hardcoded */
+	/*width: 500px;   6 boxes plus breathing room */
+
+    background: #F1EEDC;
+    border: 2px solid #0D49E8;
+    border-radius: 4px;
+    max-width: 80%;
+    padding: 8px;
+}
+
+h1 {
+    background: #0D48E8;
+    background: linear-gradient(to bottom, #8aa9ff 0%, #4274fe 10%,#2558e4 90%, #1746c5 100%);
+    padding: 6px;
+    color: white;
+    margin: -8px;
+    margin-bottom: 16px;
+    font-weight: 100;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    font-size: 1.1em;
+}
+
+.select-wordart-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 10px 0;
+}
+
+.selected {
+	border: 3px solid black !important;
+}
+
+
+.wordart-option {
+    border: 1px solid #A4B8C2;
+    padding: 8px;
+    width: 100%;
+
+	font-size: 4em;
+
+    background: white;
+    margin: 1px;
+
+    border-radius: 1px;
+    font-weight: bold;
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.4);
+
+
+
+    overflow: hidden;
+}
+
+.wordart-option:hover {
+	cursor: pointer;
+	box-shadow: inset 0 0 4px dodgerblue;
+
+}
+
+.wordart-option .text {
+	transform-style: preserve-3d;
+}
+
+.x::after {
+    content: '✕';
+    background: radial-gradient(#ffa2a2,red);
+    color: white;
+    border-radius: 3px;
+    border: 1px solid white;
+    padding: 0px 4px 1px;
+    position: relative;
+    font-size: 13px;
+    float: right;
+    top: -17px;
+    right: -3px;
+    text-shadow: -0.2px 0 0px white;
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.4), 0 0 1px rgba(0,0,0,0.4);
+}
+
+.x:hover {
+	cursor: pointer;
+	filter: saturate(2);
+}
+
+
+/*Actual wordart hell*/
+
+.text {
+	display: block;
+}
+
+.rainbow span[data-val]::before {
+  content: attr(data-val);
+  display: inline-block;
+  transform: scale(0.8, 1.5);
+
+  background: red; 
+  background: -webkit-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+  background: -o-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+  background: -moz-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+  background: linear-gradient(to right, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af); 
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.rainbow .shadow,
+.rainbow span[data-val]::after {
+	content: attr(data-val);
+	color: black;
+	opacity: 0.4;
+    -webkit-text-fill-color: inherit;
+    display: block;
+    transform: skewX(80deg) scaleX(0.8) scaleY(0.5) translateX(4.2em) translateY(-1.6em);
+    /*transform: skewX(60deg) scaleX(0.75) translateX(-1.35em) translateY(.18em);*/
+
+    position: absolute;
+    z-index: -1;
+}
+
+.display-output {
+	font-size: 5em;
+	font-weight: bold;
+	font-family: 'Arial', sans-serif;
+	border: 0;
+	box-shadow: none;
+}
+
+/*https://css-tricks.com/snippets/svg/curved-text-along-path/*/
+.wordart-option-2 {
+	letter-spacing: -0.5rem;
+	font-size: 8em;
+  font-family: Impact;
+
+  height: 66px;  /*hardcoded :( */
+
+	position: relative;
+}
+
+.wordart-option-2 svg {
+	position: absolute;
+	z-index: 1;
+}
+
+.wordart-option-2 path {
+  fill: transparent;
+}
+
+.wordart-option-2 text {
+  fill: #43CAFC;
+  stroke-width: 0.015em;
+  stroke: #0414A7;
+}
+
+
+.wordart-option-2 svg.shadow {
+    left: 6px;
+    top: -6px;
+    z-index: 0; /*override*/
+}
+
+.wordart-option-2 svg.shadow text {
+		fill: #0414A7;
+	stroke: transparent;
+}
+
+.wordart-option-3 {
+  font-family: Arial, sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* thanks https://www.designpieces.com/2017/03/wordart-css3-text-effects/*/
+
+.wordart-option-3 .text:before, .wordart-option-3 .text:after {
+  font-family: Impact;
+  display: inline-block;
+    transform: skew(0, -15deg) scale(1, 1.5);
+}
+
+.wordart-option-3 .text:before {
+    content: attr(data-val);
+
+    background: #fdea00;
+    background: linear-gradient(to bottom, #fdea00 0%, #fdcf00 44%, #fc2700 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.wordart-option-3 .text:after {
+
+  content: attr(data-val);
+    position: absolute;
+left: 0px;
+  z-index: -1;
+  color: #773118;
+    /*text-shadow:
+    0.01em 0em 0 #802700, 0em 0.01em 0 #c23d00, 0.02em 0.01em 0 #802700, 0.01em 0.02em 0 #c23d00, 0.03em 0.02em 0 #802700, 0.02em 0.03em 0 #c23d00, 0.04em 0.03em 0 #802700, 0.03em 0.04em 0 #c23d00, 0.05em 0.04em 0 #802700, 0.04em 0.05em 0 #c23d00, 0.06em 0.05em 0 #802700, 0.05em 0.06em 0 #c23d00, 0.07em 0.06em 0 #802700, 0.06em 0.07em 0 #c23d00, 0.08em 0.07em 0 #802700, 0.07em 0.08em 0 #c23d00;*/
+     text-shadow:  
+      0.01em 0em 0 #802700,
+      0em 0.01em 0 #c23d00,
+      0.02em 0.01em 0 #802700,
+      0.01em 0.02em 0 #c23d00,
+      0.04em 0.02em 0 #802700,
+      0.02em 0.03em 0 #c23d00,
+      0.06em 0.03em 0 #802700,
+      0.04em 0.04em 0 #c23d00,
+      0.08em 0.04em 0 #802700,
+      0.06em 0.05em 0 #c23d00,
+      0.10em 0.05em 0 #802700,
+      0.08em 0.06em 0 #c23d00,
+      0.12em 0.06em 0 #802700,
+      0.10em 0.07em 0 #c23d00,
+      0.14em 0.07em 0 #802700,
+      0.12em 0.08em 0 #c23d00,
+      0.16em 0.08em 0 #802700,
+      0.14em 0.09em 0 #c23d00,
+      0.18em 0.09em 0 #802700,
+      0.16em 0.10em 0 #c23d00,
+      0.20em 0.10em 0 #802700,
+      0.18em 0.11em 0 #c23d00,
+      0.22em 0.11em 0 #802700;
+}
+
+.wordart-option-4 {
+	font-family: Times;
+	font-weight: 100;
+	position: relative;
+	color: darkgreen;
+}
+
+.wordart-option-4 .text::before {
+	content: attr(data-val);
+    filter: brightness(0.85) saturate(1.2);
+
+	background-image: url('http://pic.stonecontact.com/picture201511/20162/116627/jade-green-marble-slabs-tiles-india-green-marble-tiles-slabs-p321631-1b.jpg');
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+
+}
+
+.wordart-option-4 .text::after {
+	position: absolute;
+	left: -0.1em;
+	top: -0.2em;
+
+	content: attr(data-val);
+	opacity: 0.2;
+	transform: scale(1.2);
+	letter-spacing: 0.1rem;
+}
+
+/*Manual correcvtions for XP box*/
+.wordart-option-1 .text {
+	margin-left: 10px;
+}
+
+.wordart-option-2 .text {
+    transform: scale(0.9);
+    position: relative;
+    top: -14px;
+}
+
+.wordart-option-3 .text {
+    transform: scale(0.8);
+    position: relative;
+    top: -4px;
+}
+
+.wordart-option-4 .text {
+    transform: scale(0.9);
+	margin-left: 20px;
+}
+
+.opening {
+	width: 50%;
+	margin-bottom: 30px;
+}
+
+</style>
+
+<div class="container">
+
+	<div class="opening">
+	<h2>wordart css generator</h2>
+	A CSS library for your stupid WordArt needs. Will never be finished, because CSS is torture.
+</div>
+
+	<div class='input-output'>
+
+		<div class="input put">
+
+			<h3>Input</h3>
+
+			<div class="select-wordart-style">
+					<h1>WordArt Gallery
+					<div class="x"></div>
+					</h1>
+				</span>
+
+				Select a WordArt style:
+				<div class="select-wordart-container">
+
+					<div class="wordart-option rainbow wordart-option-1 selected">
+						<span data-val="WordArt" class="text"></span>
+						<!-- <span class="text">WordArt</span> -->
+					</div>
+
+					<div class="wordart-option wordart-option-2">
+						<span class="text">
+						<!-- 20 0 400 100 -->
+						<svg viewBox="-10 -10 380 120">
+							<!--                  			M 0,75 
+                  			Q 50,100 100,75
+                  			T 200,75
+                  			Q 250,100 300,75
+                  			T 400,75
+                  			Q 450,100 500,75
+                  			T 600,75
+-->
+						  <path id="curve" d="
+ 						           M 0,75
+						           Q 25,90 50,75
+						           T 100,75
+						           Q 125,90 150,75
+						           T 200,75
+" />
+						  <text x="25">
+						    <textPath xlink:href="#curve">
+								WordArt
+						    </textPath>
+						  </text>
+						</svg>
+
+						<svg class='shadow' viewBox="-10 -10 380 120">
+						  <path id="curve" d="
+						           M 0,75
+						           Q 100,125 200,75
+						           T 300,75" />
+						  <text x="25">
+						    <textPath xlink:href="#curve">
+								WordArt
+						    </textPath>
+						  </text>
+						</svg>
+						</span>
+					</div>
+					<div class="wordart-option wordart-option-3">
+						<span data-val="WordArt" class="text"></span>
+					</div>
+					<div class="wordart-option wordart-option-4">
+						<span data-val="WordArt" class="text"></span>
+					</div>
+				</div>
+
+				<div class="buttons">
+					<div class="button ok">OK</div>
+					<div class="button cancel">Cancel</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="output put">
+			<h3>Output</h3>
+
+			<div class="rainbow display-output">
+				<span class="text shadow">WordArt</span>
+				<span class="text">WordArt</span>
+			</div>
+
+			<h3>Embed</h3>
+			Download as image: [click]
+			<br><br>
+			Embed in page: 
+
+			<textarea rows=1 cols=100 readonly>
+<h3>Embed</h3>
+Download as image: [click]
+			</textarea>
+
+			<h3>Generate a dumb GIF</h3>
+			Yeah!!!
+		</div>
+	</div>
+
+	<ul class="credit">
+		<li> Special thanks to <a href=https://www.designpieces.com/2017/03/wordart-css3-text-effects/>https://www.designpieces.com/2017/03/wordart-css3-text-effects/</a>. I built off this.
+	     <li> This is literally strictly worse than this other site with the exact same concept, go look at it: <a href=http://makewordart.com>makewordart.com</a>
+	</div>
+
+</div>
+</body>
+
+</html>
