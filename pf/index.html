@@ -1,0 +1,184 @@
+<!doctype html>
+
+<link href='https://fonts.googleapis.com/css?family=Inconsolata:400,600,300' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,600,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Overpass:400,600,300' rel='stylesheet' type='text/css'>
+
+<html>
+<meta charset="utf-8">
+<head>
+	<title>dg hq!!</title>
+</head>
+
+
+<style>
+* {
+	box-sizing: border-box;
+	font-family: 'Overpass', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1.6em;
+	color: black;
+}
+
+/*body {
+	https://stackoverflow.com/questions/43371912/how-to-make-an-html-css-js-color-changing-background-like-kahoot-it-has 
+
+    -webkit-animation: bgcolor 20s infinite;
+    animation: bgcolor 10s infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}*/
+
+#container {
+	width: 300px;
+	margin: auto;
+
+	position: absolute;
+	top: 80px; left: 160px;
+}
+
+
+.section { margin: 20px 0 100px 0; }
+
+.project {
+	margin: 10px 0 10px -25px;
+	cursor: pointer;
+	padding: 20px 25px;
+	border-radius: 0px;
+
+	transition: 0.5s all;
+}
+
+.project:hover {
+	background-color: #faf5f5;
+}
+
+a { 
+	text-decoration: none;
+	background-color: #faeeee; 
+	padding: 3px;
+}
+
+h2 {
+	font-size: 1.15em;
+}
+
+h2, p { margin: 0; }
+
+p {
+	color: #777;
+	font-size: 0.9em;
+	line-height: 1.5em;
+	letter-spacing: 0.2px;
+	margin-top: 2px;
+}
+
+.mini { margin: 0 0 30px 0; }
+.mini li {
+	font-size: 0.9em;
+}
+
+h2:before { 
+	content: '';
+	height: 1em;
+	width: 30px;
+	margin-top: -5px;
+	margin-left: -10px;
+	background-color: rgba(0,0,0,0);
+	position: absolute;
+	z-index: -1;
+}
+
+@keyframes bgcolor {
+    0% {
+        background-color: #ffff66
+    }
+
+    30% {
+        background-color: #ff33ff
+    }
+
+    60% {
+        background-color: #99ff99
+    }
+
+    100% {
+        background-color: #ffff66
+    }
+}
+
+#test {
+	height: 50px;
+
+	position: fixed;
+	bottom: 20px; right: 20px;
+	cursor: pointer;
+}
+
+.link { 
+	position: relative;
+	top: -5px; left: -80px;
+	height: 0;
+	color: #ccc;
+	font-weight: 300;
+	font-size: 1.5em;
+}
+</style>
+
+<body>
+
+<img id="test" src="test.gif">
+
+
+<div id='container'>
+
+	<div class="section">
+		<div class="link">01</div>
+		Hi! I'm Diana!
+		<br><br>
+		I'm a product designer at Quora. Before that I graduated from Wellesley College in 2015. 
+		<br><br>
+		I like dessert, video games, and learning most things! More about me <a href="#">below</a> if you're interested.
+		<br><br>
+	</div>
+
+	<div class="section">
+	<div class="link">02</div>
+		Here's stuff I've done or made!
+		<br><br>
+
+		<div class="project">
+			<h2>Quora</h2>
+			<p>All of my professional work! Sharing and growing the world's knowledge, etc
+		</div>
+
+		<div class="project">
+			<h2>Random projects</h2>
+			<p>Stuff I do for fun! Usually game-related</p>
+		</div>
+
+		<div class="project">
+			<h2>Writing</h2>
+			<p>Things I think about! Usually boring :O</p>
+		</div>
+
+	</div>
+
+	<div class="section">
+	<div class="link">03</div>
+	More stuff about me (feel free to skip):
+
+	<br><br>
+	<ul class="mini">
+		<li>test
+	</ul>
+	Why does this section even exist? It's a good question... I always enjoy reading about other people on their sites beyond their professional achievements / side projects / whatever, so I figured why not include this dumb autobiographical section in case anyone else feels that way!
+
+	</div>
+</div>
+
+</body>
+
+</html>
