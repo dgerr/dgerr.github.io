@@ -1,0 +1,55 @@
+<!-- Test for blake-->
+<html>
+
+<title></title>
+
+<!--CSS-->
+<style type="text/css">
+
+#background {
+	height: 100%;
+	width: 100%;
+	position: absolute; top: 0; left: 0;
+	z-index: -1;
+	background-size: cover;
+
+	background-image: url(034.gif);
+}
+
+
+</style>
+
+
+<!--JS-->
+<script>
+var gifs = ['071.gif', '040J.gif', '034.gif'];
+var counter = 0;
+
+// Do this every 10000 ms (100sec)
+window.setInterval(function() {
+
+	var new_url = gifs[counter%3];
+	var new_url_str = 'url(' + new_url + ')';
+	document.getElementById('background').style.backgroundImage = new_url_str; 
+	counter++; 
+
+}, 10000);
+
+</script>
+
+
+<!--HTML-->
+<body>
+
+
+<!-- These hidden images are necessary to preload the images so that the background doesn't flicker on change, ignore them -->
+<img src="071.gif" style="display:none;" alt="" />
+<img src="034.gif" style="display:none;" alt="" />
+<img src="040J.gif" style="display:none;" alt="" />
+
+<div id="background"></div>
+
+
+</body>
+
+</html>
